@@ -1,5 +1,5 @@
 const path = require('path');
-/*const webpack = require('webpack');*/
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: {
@@ -10,6 +10,9 @@ module.exports = {
         /*new webpack.optimize.CommonsChunkPlugin({
             name: 'common' // 指定公共 bundle 的名称。
         }),*/
+        new webpack.ProvidePlugin({
+            _: 'lodash'
+        }),
         new HtmlWebpackPlugin({
             title: 'Production'
         })
