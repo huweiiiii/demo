@@ -29,8 +29,12 @@ if (module.hot) {
         printMe();
     })
 }
+
 */
 /*import _ from 'lodash';*/
+/*import Vue from 'vue'*/
+import Vue from 'vue/dist/vue.esm.js'
+import App from './App.vue'
 import { cube } from './math.js';
 console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV !== 'production') {
@@ -41,12 +45,12 @@ function component() {
     var element = document.createElement('pre');
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
     element.classList.add('hello');
-    button.innerHTML = 'Click me and look at the console!';
+    button.innerHTML = 'Click me and look at the console!1111111';
     element.appendChild(button);
-    button.onclick = e => import(/* webpackChunkName: "print" */ './print').then(module => {
+    /*button.onclick = e => import(/!* webpackChunkName: "print" *!/ './print').then(module => {
         var print = module.default;
         print();
-    });
+    });*/
     /*element.innerHTML = [
         'Hello webpack!',
         '5 cubed is equal to ' + cube(5)
@@ -55,3 +59,8 @@ function component() {
 }
 
 document.body.appendChild(component());
+export const vm = new Vue({
+    el: '#app',
+    template: '<App/>',
+    components: {App}
+});

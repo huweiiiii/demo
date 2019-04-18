@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: {
@@ -14,12 +15,52 @@ module.exports = {
             _: 'lodash'
         }),
         new HtmlWebpackPlugin({
-            title: 'Production'
-        })
+            title: 'Production',
+            template: path.join(__dirname, '../src/index.html'),
+        }),
+        new VueLoaderPlugin()
     ],
     output: {
         filename: '[name].[chunkhash].js',
         path: path.resolve(__dirname, '../dist')
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    'vue-style-loader',
+                    'css-loader'
+                ]
+            },
+            /*{
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            },*/
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader'
+                ]
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            }
+        ]
     },
     optimization: {
         splitChunks: {
