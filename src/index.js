@@ -35,6 +35,7 @@ if (module.hot) {
 /*import Vue from 'vue'*/
 import Vue from 'vue/dist/vue.esm.js'
 import App from './App.vue'
+import Icon from './v.png';
 import { cube } from './math.js';
 console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV !== 'production') {
@@ -47,6 +48,9 @@ function component() {
     element.classList.add('hello');
     button.innerHTML = 'Click me and look at the console!1111111';
     element.appendChild(button);
+    var myIcon = new Image();
+    myIcon.src = Icon;
+    element.appendChild(myIcon);
     /*button.onclick = e => import(/!* webpackChunkName: "print" *!/ './print').then(module => {
         var print = module.default;
         print();
