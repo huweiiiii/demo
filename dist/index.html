@@ -1,9 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Production</title>
-  </head>
-  <body>
-  <script type="text/javascript" src="commons.cf80e78d028e88aeb847.js"></script><script type="text/javascript" src="app.3aecbfa342c69b8b8d2b.js"></script><script type="text/javascript" src="another.9fbeaebcf690ce03484a.js"></script></body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <title>抢福利</title>
+    <script>
+        setRem();
+        window.addEventListener("orientationchange", setRem);
+        window.addEventListener("resize", setRem);
+        function setRem() {
+            var html = document.querySelector("html");
+            var width = html.getBoundingClientRect().width;
+            var fontSize = 100*(width / 750);
+            if(fontSize > 85) fontSize = 85;
+            if(fontSize < 42) fontSize = 42;
+            html.style.fontSize = fontSize + "px";
+        }
+    </script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+
+</head>
+<body>
+<div id="app"></div>
+<script type="text/javascript" src="commons.841b4c42241d1d29e564.js"></script><script type="text/javascript" src="app.363ae890559fc06fae05.js"></script><script type="text/javascript" src="another.7f2a6f2c1dd7aeac793d.js"></script></body>
 </html>
